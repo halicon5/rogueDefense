@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Ascii List</title>
+	<script type="text/javascript" src="SASlib.js"></script>
+</head>
+
+<body>
+    <h1>ASCII Listing</h1>
+    <table id="asciiList" border="1"></table>
+
+    <script type="text/javascript">
+		var table = document.getElementById("asciiList");
+		var txt = "";
+		for (j = 9000; j<12000; j++) {
+			if (j % 15 == 0) {
+				txt += "(" + j + ")"
+				var tr = createSuperElement("tr");
+				appendChildren(table, tr);		
+			}
+			
+			txt = "[" + String.fromCharCode(j) + "] " + j.toString();
+			if (j == 3897 || j == 3299) {
+				txt = "[] " + j.toString();
+			} 
+
+			var td = createSuperElement("td", ["innerHTML", txt ]);
+			appendChildren(tr, td);
+
+		}
+    </script>
+</body>
+
+</html>
